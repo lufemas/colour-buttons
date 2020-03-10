@@ -9,10 +9,14 @@
     justify-content: space-evenly;
 }
 
+.animated-buttons li{
+
+}
 .animated-button{
     padding: 1rem 2rem;
     border: solid lightgray 0.05rem;
     border-radius: .25rem;
+    
 }    
 
 .animated-button:hover{
@@ -24,5 +28,103 @@
     outline: none;
     border-width: 0.1rem;
     padding: 0.95rem 1.95rem;
+    transition: all 1s ease-in-out;
+    position: relative;
+    transform: rotate(360deg);
 
 }
+
+.bg-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    height: 25%;
+    border: solid .5rem #444;
+    transition: all 1.25s ease;
+    border-radius: 1rem;
+    transform: perspective(400px);
+    color: rgba(34, 34, 34, 0);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Using :focus and :focus::before or focus::after */
+
+#animated-button-red:focus{
+    background-color: red;
+}
+
+#animated-button-red:focus +  .bg-box{
+    background-color: rgb(255, 72, 72);
+    border-color: rgb(114, 31, 31);
+    transform: rotateY(180deg);
+    z-index: -1;
+    color: #222;
+
+
+}
+
+#animated-button-red:focus::before{
+    content: 'rgb(255,0,0)';
+    position: absolute;
+    left: 0;
+    top: -1.25rem;
+} 
+
+#animated-button-green:focus{
+    background-color: green;
+    color: white;
+
+}
+
+#animated-button-green:focus + .bg-box{
+    background-color: rgb(88, 241, 88);
+    border-color: rgb(40, 112, 40);
+    transform: rotateX(180deg);
+    z-index: -1;
+    color: #222;
+
+}
+
+#animated-button-green:focus::before{
+    content: 'rgb(0,255,0)';
+    position: absolute;
+    left: 0;
+    top: -1.25rem;
+    color: black;
+
+}
+
+#animated-button-blue:focus{
+    background-color: blue;
+    color: white;
+}
+
+#animated-button-blue:focus + .bg-box{
+    background-color: rgb(59, 59, 255);
+    border-color: rgb(31, 31, 143);
+    transform: rotateZ(180deg);
+    z-index: -1;
+    color: #222;
+
+
+    
+
+}
+
+
+#animated-button-blue:focus::before{
+    content: 'rgb(0,0,255)';
+    position: absolute;
+    left: 0;
+    top: -1.25rem;
+    /* color: black; */
+
+}
+
